@@ -33,9 +33,24 @@ export function fetchData(){
       })
     })
     .catch( err => {
+      dispatch({ type: FAILURE })
+    })
+  }
+}
+
+export function addSmurf(smurf){
+  return dispatch => {
+    axios
+    .post('http://localhost:3333/smurfs', smurf)
+    .then( res => {
+      console.dir({ resData: res.data});
       dispatch({
-        type: FAILURE
+        type: SUCCESS,
+        payload: res.data
       })
+    })
+    .catch( err =>{ 
+      dispatch({ type: FAILURE })
     })
   }
 }
