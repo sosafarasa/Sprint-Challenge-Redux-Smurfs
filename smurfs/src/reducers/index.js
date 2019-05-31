@@ -1,4 +1,4 @@
-import { FETCHING, SUCCESS, FAILURE, ADD_SMURF } from '../actions';
+import { FETCHING, SUCCESS, FAILURE, ADD_SMURF, DELETE_SMURF } from '../actions';
 
 /*
  Your initial/default state for this project could *Although does not have to* look a lot like this
@@ -31,10 +31,14 @@ export const reducer = ( state = initialState, action) => {
     case FETCHING:
       return {...state, smurfs: [], fetchingSmurfs: true, error: null}
     case SUCCESS:
-      return {...state, smurfs: [action.payload], fetchingSmurfs: false, error: null}
+      return {...state, smurfs: action.payload, fetchingSmurfs: false, error: null}
     case FAILURE:
       return {...state, smurfs: [], fetchingSmurfs: false, error: 'Oh oh, something went wrong...'}
     case ADD_SMURF:
-      return {...state, smurfs: [action.payload], fetchingSmurfs: false, error: null}
+      return {...state, smurfs: action.payload, fetchingSmurfs: false, error: null}
+    case DELETE_SMURF:
+      return {...state, smurfs: action.payload, fetchingSmurfs: false, error: null}
+    default:
+    return state;
   }
 }
