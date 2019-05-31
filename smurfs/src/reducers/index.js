@@ -1,4 +1,4 @@
-import {FETCHING, SUCCESS, FAILURE, ADD_SMURF} from '../actions';
+import { FETCHING, SUCCESS, FAILURE, ADD_SMURF } from '../actions';
 
 /*
  Your initial/default state for this project could *Although does not have to* look a lot like this
@@ -16,7 +16,6 @@ const initialState = {
   smurfs: [],
   fetchingSmurfs: false,
   error: null
-
 }
 
 /*
@@ -27,7 +26,7 @@ const initialState = {
   Components can then read your store as, `state` and not `state.fooReducer`.
 */
 
-export const reducer = ( state = initialState, action) {
+export const reducer = ( state = initialState, action) => {
   switch(action.type){
     case FETCHING:
       return {...state, smurfs: [], fetchingSmurfs: true, error: null}
